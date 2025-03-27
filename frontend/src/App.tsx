@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { List, ListItem, ListItemText, Typography } from "@mui/material";
+import { Fragment, useEffect, useState } from "react";
 
 function App() {
   const[activities, setActivities] = useState<Activity[]>([]);
@@ -11,14 +12,16 @@ function App() {
 
   const title = 'Reactivities!'
   return (
-    <div>
-      <h3 className="app">{title}</h3>
-      <ul>
+    <Fragment>
+      <Typography variant="h3" className="app">{title}</Typography>
+      <List>
         {activities.map((activity) => (
-          <li key={activity.id} >{activity.title}</li>
+          <ListItem key={activity.id}>
+            <ListItemText>{activity.title}</ListItemText>
+          </ListItem>
         ))}
-      </ul>
-    </div>
+      </List>
+    </Fragment>
   )
 }
 
